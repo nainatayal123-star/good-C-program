@@ -5,7 +5,6 @@
 
 int comp_choice()
 {
-    srand(time(NULL));
     int choice = rand() % 3;
     printf("Computer choose : ");
     if(choice == 0)
@@ -26,9 +25,11 @@ int comp_choice()
 
 int main ()
 {
+    srand(time(NULL));
     int pointU = 0,pointC = 0;
     printf("\n\t\tROCK PAPER & SCISSORS\n\n");
     char name[15];
+    int choice;
     printf("Enter your first name : ");
     scanf("%s",name);
     printf("\n");
@@ -37,9 +38,14 @@ int main ()
         printf("\t\t\tROUND %d\n\n",i);
         printf("%s's turn :\n\n",name);
         printf("1. Rock\n2. Paper\n3. Scissors\n\n");
+        invalid:
         printf("Enter your choice : ");
-        int choice;
         scanf("%d",&choice);
+        if(choice > 3 || choice < 1)
+        {
+            printf("\nInvalid Input\n\n");
+            goto invalid;
+        }
         choice--;
         printf("\nComputer's turn :\n\n");
         int c_choice;

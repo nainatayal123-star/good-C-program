@@ -7,7 +7,6 @@ int comp_run()
     int choice = rand() % 6;
     return choice + 1 ;
 }
-
 int main()
 {
     srand(time(NULL));
@@ -30,7 +29,7 @@ int main()
         scanf("%d",&choice);
         if(choice > 6 || choice < 1)
         {
-            printf("Invalid Input\n\n");
+            printf("\nInvalid Input\n\n");
             goto invalid;
         }
         printf("Computer played : ");
